@@ -1,15 +1,18 @@
 #include <time.h>
+#include <stdlib.h>
+#include "Patient.h"
 
-typedef struct {
+struct patient 
+{
     int id;
-    char * name;
+    char *name;
     struct tm * birthdate;
-} Patient;
+};
 
-Patient * create_patient(int id, const char *name, struct tm *birthdate, struct tm *arrival) {
+Patient *create_patient(int id, const char *name, struct tm *birthdate) {
     Patient *patient;
 
-    patient = (Patient *) malloc(sizeof(Patient));
+    patient = (Patient *)malloc(sizeof(Patient));
     if (patient == NULL) {
         perror("Falha ao alocar memória para o paciente");
         exit(1);

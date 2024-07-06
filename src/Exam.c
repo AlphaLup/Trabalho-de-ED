@@ -1,11 +1,13 @@
 #include <time.h>
+#include <stdlib.h>
+#include "Exam.h"
 
-typedef struct {
+struct exam {
     int id;
     int patient_id;
     int rx_id;
     struct tm *time;
-} Exam;
+};
 
 Exam * create_exam (int id, int patient_id, int rx_id, struct tm *time) {
     Exam *exam;
