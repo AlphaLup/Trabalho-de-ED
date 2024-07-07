@@ -1,6 +1,8 @@
 #ifndef PATIENT_H
 #define PATIENT_H
 
+#include <time.h>
+
 // define the structure of the patient
 typedef struct patient Patient;
 
@@ -11,12 +13,12 @@ Patient *create_patient(int id, char *name, struct tm *birthdate);
 void destroy_patient(Patient *patient);
 
 // get the id of a patient
-int get_patient_id(Patient *patient);
+int get_patient_id(const Patient *patient);
 
 // get the name of a patient
-char get_patient_name(Patient *patient);
+char get_patient_name(const Patient *patient);
 
 // get the birthdate of a patient
-struct tm * get_patient_birthdate(Patient *patient);
+struct tm * get_patient_birthdate(const Patient *patient);
 
 #endif
