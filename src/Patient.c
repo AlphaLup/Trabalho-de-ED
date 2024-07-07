@@ -1,12 +1,13 @@
 #include <time.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 #include "Patient.h"
 
 struct patient 
 {
     int id;
-    char name[100];
+    char * name;
     struct tm * birthdate;
 };
 
@@ -14,8 +15,9 @@ Patient *create_patient(int id, const char *name, struct tm *birthdate) {
     Patient *new_patient;
 
     new_patient = (Patient *)malloc(sizeof(Patient));
+    new_patient->name = (char *)malloc(strlen(name));
     if (new_patient == NULL) {
-        perror("Falha ao alocar memória para o paciente");
+        perror("Falha ao alocar memóclaria para o paciente");
         exit(1);
     }
 
@@ -28,6 +30,7 @@ Patient *create_patient(int id, const char *name, struct tm *birthdate) {
 }
 
 void destroy_patient(Patient *patient) {
+    free(patient->name);
     free(patient);
 }
 
@@ -35,7 +38,7 @@ int get_patient_id(const Patient *patient) {
     return patient->id;
 }
 
-const char get_patient_name(const Patient *patient) {
+char * get_patient_name(const Patient *patient) {
     return patient->name;
 }
 

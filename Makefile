@@ -14,10 +14,10 @@ SRC_DIR = src
 INC_DIR = include
 
 # Executable name
-TARGET = test_circle
+TARGET = output
 
 # Main file
-MAIN = test_circle.c
+MAIN = main.c
 
 # Source files: all .c files in the source directory plus the main file
 SRCS = $(wildcard $(SRC_DIR)/*.c) $(MAIN)

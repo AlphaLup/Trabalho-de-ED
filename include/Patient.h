@@ -7,7 +7,7 @@
 typedef struct patient Patient;
 
 // create a new patient
-Patient *create_patient(int id, char *name, struct tm *birthdate);
+Patient *create_patient(int id, const char *name, struct tm *birthdate);
 
 // destroy a patient
 void destroy_patient(Patient *patient);
@@ -16,7 +16,7 @@ void destroy_patient(Patient *patient);
 int get_patient_id(const Patient *patient);
 
 // get the name of a patient
-char get_patient_name(const Patient *patient);
+char * get_patient_name(const Patient *patient);
 
 // get the birthdate of a patient
 struct tm * get_patient_birthdate(const Patient *patient);

@@ -1,5 +1,6 @@
 #include <time.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include "Exam.h"
 
 struct exam {
@@ -34,7 +35,7 @@ int get_exam_id(Exam *exam) {
     return exam->id;
 }
 
-int get_patient_id(Exam *exam) {
+int get_exam_patient_id(Exam *exam) {
     return exam->patient_id;
 }
 
