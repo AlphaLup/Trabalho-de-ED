@@ -35,9 +35,11 @@ Patient *create_patient(int id, const char *name, struct tm *birthdate) {
 // destrói um paciente
 void destroy_patient(Patient *patient) {
     // libera a memória alocada para a estrutura do paciente
-    free(patient->name);
-    free(patient->birthdate);
-    free(patient);
+    if (patient!=NULL) {
+        free(patient->name);
+        free(patient->birthdate);
+        free(patient);
+    }
 }
 
 // obtém o ID de um paciente
