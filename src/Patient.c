@@ -26,7 +26,7 @@ Patient *create_patient(int id, const char *name, struct tm *birthdate) {
 
     // define os valores do novo paciente
     new_patient->id = id;
-    strcpy(new_patient->name, name);
+    new_patient->name = strdup(name)
     new_patient->birthdate = birthdate;
 
     return new_patient;
