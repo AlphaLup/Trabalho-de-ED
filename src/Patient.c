@@ -4,6 +4,7 @@
 #include <string.h>
 #include "Patient.h"
 
+// define a estrutura do paciente
 struct patient 
 {
     int id;
@@ -11,37 +12,48 @@ struct patient
     struct tm * birthdate;
 };
 
+// cria um novo paciente
 Patient *create_patient(int id, const char *name, struct tm *birthdate) {
     Patient *new_patient;
 
+    // aloca memória para o novo paciente
     new_patient = (Patient *)malloc(sizeof(Patient));
     new_patient->name = (char *)malloc(strlen(name));
     if (new_patient == NULL) {
-        perror("Falha ao alocar memóclaria para o paciente");
+        perror("Falha ao alocar memória para o paciente");
         exit(1);
     }
 
+    // define os valores do novo paciente
     new_patient->id = id;
-    // Fixed wrong assignment of the property "patient->name"
     strcpy(new_patient->name, name);
     new_patient->birthdate = birthdate;
 
     return new_patient;
 }
 
+// destrói um paciente
 void destroy_patient(Patient *patient) {
+    // libera a memória alocada para a estrutura do paciente
     free(patient->name);
+    free(patient->birthdate);
     free(patient);
 }
 
+// obtém o ID de um paciente
 int get_patient_id(const Patient *patient) {
+    // retorna o ID do paciente
     return patient->id;
 }
 
+// obtém o nome de um paciente
 char * get_patient_name(const Patient *patient) {
+    // retorna um ponteiro contendo uma cópia do campo name da estrutura patient
     return patient->name;
 }
 
+// obtém a data de nascimento de um paciente
 struct tm * get_patient_birthdate(const Patient *patient) {
+    // retorna um ponteiro referenciando a estrutura tm de <time.h>
     return patient->birthdate;
 }

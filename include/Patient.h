@@ -3,22 +3,27 @@
 
 #include <time.h>
 
-// define the structure of the patient
+// define a estrutura do paciente
 typedef struct patient Patient;
 
-// create a new patient
+// criar um novo paciente
+// tipo de retorno: Patient * p --> (ponteiro para a estrutura do paciente)
 Patient *create_patient(int id, const char *name, struct tm *birthdate);
 
-// destroy a patient
+// destruir um paciente
+// liberar a memória alocada para a estrutura do paciente
 void destroy_patient(Patient *patient);
 
-// get the id of a patient
+// obter o ID de um paciente
+// tipo de retorno: int
 int get_patient_id(const Patient *patient);
 
-// get the name of a patient
+// obter o nome de um paciente
+// retorna um ponteiro contendo uma cópia do campo patient->name (char *)
 char * get_patient_name(const Patient *patient);
 
-// get the birthdate of a patient
+// obter a data de nascimento de um paciente
+// retorna um ponteiro referenciando a estrutura tm de <time.h>
 struct tm * get_patient_birthdate(const Patient *patient);
 
 #endif
